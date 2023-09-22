@@ -47,6 +47,21 @@ impl TrustZoneCtrl {
                 let output = String::from_utf8(output.stdout).unwrap();
                 info!(task = "read_trustzone_cert", "output: {}", output);
 
+                //read the file and return it
+                let output = match fs::read_to_string(output_file) {
+                    Ok(x) => {
+                        info!(task = "read_trustzone_cert", "output: {}", x);
+                        x
+                    }
+                    Err(e) => {
+                        trace_error!(task = "read_trustzone_cert", "unable to read cert: {}", e);
+                        bail!(TrustZoneCtrlError::new(
+                            TrustZoneCtrlErrorCodes::UnableToReadTrustZoneCert,
+                            format!("unable to read cert: {}", e),
+                        ))
+                    }
+                };
+
                 Ok(output)
             }
             Err(e) => {
@@ -57,6 +72,8 @@ impl TrustZoneCtrl {
                 ))
             }
         }
+        
+
     }
     //write_trustzone_cert we need to write the cert to the trustzone ic and return ok or error using match and anyhow error
     pub fn write_trustzone_cert(&self, cert: &str) -> Result<()> {
