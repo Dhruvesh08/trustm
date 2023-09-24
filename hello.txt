@@ -1,0 +1,277 @@
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ls
+libtrustm.so	   trustm_cert	      trustm_ecc_sign	 trustm_hkdf		  
+trustm_monotonic_counter  trustm_readmetadata_data	 trustm_rsa_enc     
+trustm_symmetric_dec
+simpleTest_Client  trustm_chipinfo    trustm_ecc_verify  trustm_hmac		  
+trustm_protected_update   trustm_readmetadata_private  trustm_rsa_keygen  
+trustm_symmetric_enc
+simpleTest_Server  trustm_data	      trustm_engine.so	 
+trustm_hmac_verify_Auth  trustm_read_data	    
+trustm_readmetadata_status	 trustm_rsa_sign    
+trustm_symmetric_keygen
+test_cert_1.crt    trustm_ecc_keygen  trustm_errorcode	 trustm_metadata	  
+trustm_read_status	    trustm_rsa_dec		 
+trustm_rsa_verify
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# rustm_cert -r 0xe0e0 
+-o teste0e0.crt
+-sh: rustm_cert: command not found
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# trustm_cert -r 
+0xe0e0 -o teste0e0.crt
+-sh: trustm_cert: command not found
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_cert -r 
+0xe0e0 -o teste0e0.crt
+========================================================
+OID              : 0xE0E0
+Output File Name : teste0e0.crt
+Success!!!
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# cat teste0e0.crt
+-----BEGIN CERTIFICATE-----
+MIIBuzCCAWKgAwIBAgIEQyNJNzAKBggqhkjOPQQDAjByMQswCQYDVQQGEwJERTEh
+MB8GA1UECgwYSW5maW5lb24gVGVjaG5vbG9naWVzIEFHMRMwEQYDVQQLDApPUFRJ
+R0EoVE0pMSswKQYDVQQDDCJJbmZpbmVvbiBPUFRJR0EoVE0pIFRydXN0IE0gQ0Eg
+MTAxMB4XDTIxMTEyODA0MDU0NloXDTQxMTEyODA0MDU0NlowADBZMBMGByqGSM49
+AgEGCCqGSM49AwEHA0IABFXnR+g+YC/ONelZ/lhHxwBRhUKY1CnIAiDeLnuJeqrA
+/NsYKc9gPBhWeewI9252/9pcuzy0Gs3x7SFapdfOr4CjWDBWMA4GA1UdDwEB/wQE
+AwIAgDAMBgNVHRMBAf8EAjAAMBUGA1UdIAQOMAwwCgYIKoIUAEQBFAEwHwYDVR0j
+BBgwFoAUPDCMXNWK6KNdMoDkVIOy/82GTSMwCgYIKoZIzj0EAwIDRwAwRAIgFWTG
+CeVm50L2a/l8hQZFliZx595Hwd2SMb9vBEAjTNMCICFd0Av8TTczksjdzl7Le+Av
+Rdx1GQa++LiXAlwvh7Ku
+-----END CERTIFICATE-----
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# cat 
+================= write certificate ================
+cat: '=================': No such file or directory
+cat: write: No such file or directory
+cat: certificate: No such file or directory
+cat: '================': No such file or directory
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_cert -w 
+0xe0e1 -i teste0e0.crt
+========================================================
+Success!!!
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# cat teste0e0.crt
+-----BEGIN CERTIFICATE-----
+MIIBuzCCAWKgAwIBAgIEQyNJNzAKBggqhkjOPQQDAjByMQswCQYDVQQGEwJERTEh
+MB8GA1UECgwYSW5maW5lb24gVGVjaG5vbG9naWVzIEFHMRMwEQYDVQQLDApPUFRJ
+R0EoVE0pMSswKQYDVQQDDCJJbmZpbmVvbiBPUFRJR0EoVE0pIFRydXN0IE0gQ0Eg
+MTAxMB4XDTIxMTEyODA0MDU0NloXDTQxMTEyODA0MDU0NlowADBZMBMGByqGSM49
+AgEGCCqGSM49AwEHA0IABFXnR+g+YC/ONelZ/lhHxwBRhUKY1CnIAiDeLnuJeqrA
+/NsYKc9gPBhWeewI9252/9pcuzy0Gs3x7SFapdfOr4CjWDBWMA4GA1UdDwEB/wQE
+AwIAgDAMBgNVHRMBAf8EAjAAMBUGA1UdIAQOMAwwCgYIKoIUAEQBFAEwHwYDVR0j
+BBgwFoAUPDCMXNWK6KNdMoDkVIOy/82GTSMwCgYIKoZIzj0EAwIDRwAwRAIgFWTG
+CeVm50L2a/l8hQZFliZx595Hwd2SMb9vBEAjTNMCICFd0Av8TTczksjdzl7Le+Av
+Rdx1GQa++LiXAlwvh7Ku
+-----END CERTIFICATE-----
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_cert -c 
+0xe0e1
+========================================================
+Cleared.
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# cat teste0e0.crt
+-----BEGIN CERTIFICATE-----
+MIIBuzCCAWKgAwIBAgIEQyNJNzAKBggqhkjOPQQDAjByMQswCQYDVQQGEwJERTEh
+MB8GA1UECgwYSW5maW5lb24gVGVjaG5vbG9naWVzIEFHMRMwEQYDVQQLDApPUFRJ
+R0EoVE0pMSswKQYDVQQDDCJJbmZpbmVvbiBPUFRJR0EoVE0pIFRydXN0IE0gQ0Eg
+MTAxMB4XDTIxMTEyODA0MDU0NloXDTQxMTEyODA0MDU0NlowADBZMBMGByqGSM49
+AgEGCCqGSM49AwEHA0IABFXnR+g+YC/ONelZ/lhHxwBRhUKY1CnIAiDeLnuJeqrA
+/NsYKc9gPBhWeewI9252/9pcuzy0Gs3x7SFapdfOr4CjWDBWMA4GA1UdDwEB/wQE
+AwIAgDAMBgNVHRMBAf8EAjAAMBUGA1UdIAQOMAwwCgYIKoIUAEQBFAEwHwYDVR0j
+BBgwFoAUPDCMXNWK6KNdMoDkVIOy/82GTSMwCgYIKoZIzj0EAwIDRwAwRAIgFWTG
+CeVm50L2a/l8hQZFliZx595Hwd2SMb9vBEAjTNMCICFd0Av8TTczksjdzl7Le+Av
+Rdx1GQa++LiXAlwvh7Ku
+-----END CERTIFICATE-----
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_chipinfo
+Read Chip Info [0xE0C2]: Success.
+========================================================
+CIM Identifier             [bCimIdentifer]: 0xcd
+Platform Identifer   [bPlatformIdentifier]: 0x16
+Model Identifer         [bModelIdentifier]: 0x33
+ID of ROM mask                  [wROMCode]: 0x8401
+Chip Type                    [rgbChipType]: 0x00 0x1c 0x00 0x01 0x00 
+0x00
+Batch Number              [rgbBatchNumber]: 0x0a 0x01 0xb8 0x1a 0x00 
+0x06
+X-coordinate              [wChipPositionX]: 0x002e
+Y-coordinate              [wChipPositionY]: 0x00a2
+Firmware Identifier [dwFirmwareIdentifier]: 0x80101071
+Build Number                 [rgbESWBuild]: 08 09
+
+Chip software build:
+OPTIGA(TM) Trust M rev.1; Firmware Version: 1.30.809
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# touch 1234.txt
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# nano 1234.txt
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# cat 1234.txt
+1234
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_data -w 
+0xe0e1 -i 1234.txt
+
+========================================================
+Device Public Key           [0xE0E1]
+Offset: 0
+Input data :
+	31 32 33 34 0A
+Write Success.
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_data -r 
+0xe0e1
+
+========================================================
+Device Public Key           [0xE0E1]
+[Size 0005] :
+	31 32 33 34 0A
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_data -w 
+0xe0e1 -e -p 10 -i 1234.txt
+
+========================================================
+Device Public Key           [0xE0E1]
+Offset: 10
+Input data :
+	31 32 33 34 0A
+Write Success.
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_data -r 
+0xe0e1
+
+========================================================
+Device Public Key           [0xE0E1]
+[Size 0015] :
+	00 00 00 00 00 00 00 00 00 00 31 32 33 34 0A
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_ecc_keygen
+
+
+Help menu: trustm_ecc_keygen <option> ...<option>
+option:-
+-g <Key OID>    : Generate ECC Key in OID 0xNNNN
+-t <key type>   : Key type Auth:0x01 Enc :0x02 HFWU:0x04
+                           DevM:0X08 Sign:0x10 Agmt:0x20
+                           [default Auth]
+-k <key size>   : Key size ECC256:0x03 ECC384:0x04 ECC521:0x05
+                           BRAINPOOL256:0x13 BRAINPOOL384:0x15 
+BRAINPOOL512:0x16
+                           [default ECC256]
+-o <filename>   : Output Pubkey to file in PEM format
+-s              : Save Pubkey in <Key OID + 0x10E0>
+                  For ECC521/BRAINPOOL512:
+                  Save Pubkey in <Key OID + 0x10EF>
+-X              : Bypass Shielded Communication
+-h              : Print this help
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_ecc_keygen 
+-g 0xe0f3 -t 0x13 -k 0x03 -o test_e0f3_pub.pem -s
+
+========================================================
+Generating Key to 0xE0F3
+Output File Name : test_e0f3_pub.pem
+Pubkey :
+	30 59 30 13 06 07 2A 86 48 CE 3D 02 01 06 08 2A
+	86 48 CE 3D 03 01 07 03 42 00 04 E0 0F 3E C7 03
+	63 B6 9F E8 15 88 CD 46 4E DC 9F 4F BB AC EF 9C
+	AB 94 0C AB 17 ED DE F0 8E E4 40 E6 1F A2 E7 1C
+	F7 FA FE 87 6A 77 D4 72 32 77 7C 47 2C EF DB C0
+	8D BE B8 80 94 4F 8E 4D E2 A4 E3
+Write Success to OID: 0xF1D3.
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# cat 
+test_e0f3_pub.pem
+-----BEGIN PUBLIC KEY-----
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4A8+xwNjtp/oFYjNRk7cn0+7rO+c
+q5QMqxft3vCO5EDmH6LnHPf6/odqd9RyMnd8Ryzv28CNvriAlE+OTeKk4w==
+-----END PUBLIC KEY-----
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_ecc_sign
+
+
+Help menu: trustm_ecc_sign <option> ...<option>
+option:-
+-k <OID Key>  : Select ECC key for signing OID (0xE0F0-0xE0F3)
+-o <filename> : Output to file with header
+-O <filename> : Output to file without header
+-i <filename> : Input Data file
+-H            : Hash before sign
+-X            : Bypass Shielded Communication
+-h            : Print this help
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_ecc_sign -k 
+0xe0f3 -o testsignature.bin -i helloworld.txt -H
+
+========================================================
+OID Key          : 0xE0F3
+Output File Name : testsignature.bin
+Input File Name  : helloworld.txt
+error opening file : helloworld.txt
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# hd testsignature.bin
+-sh: hd: command not found
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_ecc_verify 
+-i helloworld.txt -s testsignature.bin -p test_e0f3_pub.pem -H
+
+========================================================
+File open error!!!
+Error signature reading file!!!
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# nano helloworld.txt
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_ecc_verify 
+-i helloworld.txt -s testsignature.bin -p test_e0f3_pub.pem -H
+
+========================================================
+File open error!!!
+Error signature reading file!!!
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_ecc_sign -k 
+0xe0f3 -o testsignature.bin -i helloworld.txt -H
+
+========================================================
+OID Key          : 0xE0F3
+Output File Name : testsignature.bin
+Input File Name  : helloworld.txt
+Hash Success : SHA256
+	A7 81 67 0E 1A 3B 1F 56 9F E0 F5 A7 FC B6 93 11
+	B9 83 A0 99 9A DC 6F EA 75 8C 60 79 06 FA F5 A0
+
+Success
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_ecc_verify 
+-i helloworld.txt -s testsignature.bin -p test_e0f3_pub.pem -H
+
+========================================================
+Pubkey file         : test_e0f3_pub.pem
+Input File Name     : helloworld.txt
+Signature File Name : testsignature.bin
+Hash Digest :
+	A7 81 67 0E 1A 3B 1F 56 9F E0 F5 A7 FC B6 93 11
+	B9 83 A0 99 9A DC 6F EA 75 8C 60 79 06 FA F5 A0
+
+Signature :
+	02 21 00 CD AE 27 3A 0D C8 B7 7C C1 93 29 0A 69
+	BE 51 99 CA 13 32 30 7A 23 7E 99 28 BA 9D 16 87
+	81 E4 3D 02 21 00 DD D5 D4 02 67 9E 94 52 98 B2
+	51 C3 78 B3 3D D2 D8 D2 48 F1 12 9A CA 83 73 E3
+	D6 76 27 07 37 DE
+Pub key : [256]
+	03 42 00 04 E0 0F 3E C7 03 63 B6 9F E8 15 88 CD
+	46 4E DC 9F 4F BB AC EF 9C AB 94 0C AB 17 ED DE
+	F0 8E E4 40 E6 1F A2 E7 1C F7 FA FE 87 6A 77 D4
+	72 32 77 7C 47 2C EF DB C0 8D BE B8 80 94 4F 8E
+	4D E2 A4 E3
+Verify Success.
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m# ./trustm_ecc_verify 
+-i helloworld.txt -s testsignature.bin -k 0xe0e3 -H
+
+========================================================
+OID Cert            : 0xE0E3
+Input File Name     : helloworld.txt
+Signature File Name : testsignature.bin
+Hash Digest :
+	A7 81 67 0E 1A 3B 1F 56 9F E0 F5 A7 FC B6 93 11
+	B9 83 A0 99 9A DC 6F EA 75 8C 60 79 06 FA F5 A0
+
+Signature :
+	02 21 00 CD AE 27 3A 0D C8 B7 7C C1 93 29 0A 69
+	BE 51 99 CA 13 32 30 7A 23 7E 99 28 BA 9D 16 87
+	81 E4 3D 02 21 00 DD D5 D4 02 67 9E 94 52 98 B2
+	51 C3 78 B3 3D D2 D8 D2 48 F1 12 9A CA 83 73 E3
+	D6 76 27 07 37 DE
+
+933:Error [0x802A] : OPTIGA device Unsupported Certificate Algorithm
+========================================================
+root@mecha-comet-m-gen1:/MECHA_TEST/optiga_trust_m#
