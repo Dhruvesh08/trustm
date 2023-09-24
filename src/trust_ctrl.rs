@@ -29,11 +29,15 @@ impl TrustZoneCtrl {
     pub fn read_trustzone_cert(&self, output_file: &str, region: &str) -> Result<String> {
         trace!(task = "read_trustzone_cert", "init");
 
-        let command_output = Command::new("/MECHA_TEST/optiga_trust_m/trustm_cert")
-            .arg("-r")
-            .arg(region)
-            .arg("-o")
-            .arg(output_file)
+        let command_args = [
+            "/MECHA_TEST/optiga_trust_m/trustm_cert",
+            "-r",
+            region,
+            "-o",
+            output_file,
+        ];
+        let command_output = Command::new(&command_args[0])
+            .args(&command_args[1..])
             .output()
             .map_err(|e| {
                 TrustZoneCtrlError::new(
@@ -72,8 +76,6 @@ impl TrustZoneCtrl {
                 ))
             }
         }
-        
-
     }
     //write_trustzone_cert we need to write the cert to the trustzone ic and return ok or error using match and anyhow error
     pub fn write_trustzone_cert(&self, cert: &str) -> Result<()> {
